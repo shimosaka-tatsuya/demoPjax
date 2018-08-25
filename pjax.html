@@ -1,0 +1,36 @@
+<head>
+  <meta charset="UTF-8">
+  <title>1 | pjax DEMO</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<article>
+<header>
+    <h1>jQuery-非同期通信でページを切り替えるPJAXの使い方</h1>
+</header>
+<div id="main">
+    <section>
+    <h2>Page1</h2>
+    <p class="button"><a href="pjax2.html">Next</a></p>
+  </section>
+</div>
+<footer><p class="back"><a href="/">&#171; back to top</a></p></footer>
+</article>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="jquery.pjax.min.js"></script>
+<script>
+$(function() {
+    $.pjax({
+        area: '#main'
+    });
+    
+    $(document).bind('pjax:render', function() {
+        $('#main').attr({
+            'class': 'fadeInUp'
+        });
+    });
+});
+</script>
+</body>
